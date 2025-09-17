@@ -1,6 +1,5 @@
-"""
-Main orchestrator for LinkedIn candidate filtering and ranking system
-"""
+"""Main orchestrator for LinkedIn candidate filtering and ranking system."""
+import os
 import uuid
 from typing import List, Dict, Optional
 from datetime import datetime
@@ -12,12 +11,12 @@ from models import (
     CandidateProfile,
     SearchSession,
     RankedCandidate,
-    Experience,
-    Education
+    LinkedInSearchFilters,
 )
 from job_parser import JobDescriptionParser
 from filter_generator import LinkedInFilterGenerator
 from scoring_engine import ScoringEngine
+from linkedin_api import LinkedInAPIClient, LinkedInCandidateFetcher
 
 
 class LinkedInCandidateSystem:
@@ -25,7 +24,11 @@ class LinkedInCandidateSystem:
     Main system orchestrator for LinkedIn candidate processing
     """
 
-    def __init__(self, openai_api_key: Optional[str] = None):
+    def __init__(
+        self,
+        openai_api_key: Optional[str] = None,
+        candidate_fetcher: Optional[LinkedInCandidateFetcher] = None,
+    ) -> None:
         """
         Initialize the system with all components
 
@@ -35,6 +38,7 @@ class LinkedInCandidateSystem:
         self.job_parser = JobDescriptionParser(openai_api_key)
         self.filter_generator = LinkedInFilterGenerator()
         self.scoring_engine = ScoringEngine()
+        self.candidate_fetcher = candidate_fetcher
 
         # Track active sessions
         self.sessions: Dict[str, SearchSession] = {}
@@ -94,6 +98,33 @@ class LinkedInCandidateSystem:
             self.sessions[session_id] = session
             raise Exception(f"Failed to process job description: {str(e)}")
 
+    def fetch_candidates(
+        self,
+        session_id: str,
+        max_candidates: int = 50,
+    ) -> List[CandidateProfile]:
+        """Retrieve candidates from LinkedIn for a given session."""
+        if not self.candidate_fetcher:
+            raise RuntimeError(
+                "LinkedIn candidate fetcher is not configured. "
+                "Provide LinkedIn API credentials to enable live searches."
+            )
+
+        if session_id not in self.sessions:
+            raise ValueError(f"Session {session_id} not found")
+
+        session = self.sessions[session_id]
+        session.status = "searching"
+
+        candidates = self.candidate_fetcher.search_candidates(
+            session.search_filters,
+            limit=max_candidates,
+        )
+
+        session.total_candidates_found = len(candidates)
+        session.status = "ready_for_scoring"
+        return candidates
+
     def get_search_filters(self, session_id: str) -> Dict:
         """
         Get the generated LinkedIn search filters for a session
@@ -133,7 +164,10 @@ class LinkedInCandidateSystem:
         try:
             # Update session status
             session.status = "scoring"
-            session.total_candidates_found = len(candidates)
+            session.total_candidates_found = max(
+                session.total_candidates_found,
+                len(candidates),
+            )
 
             # Score and rank candidates
             ranked_candidates = self.scoring_engine.rank_candidates(
@@ -271,148 +305,9 @@ class LinkedInCandidateSystem:
         return output.getvalue()
 
 
-def create_sample_candidates() -> List[CandidateProfile]:
-    """Create sample candidate data for testing"""
-    candidates = []
-
-    # Candidate 1: Strong match
-    candidate1 = CandidateProfile(
-        linkedin_id="sample1",
-        linkedin_url="https://linkedin.com/in/sample1",
-        name="John Doe",
-        headline="Senior Software Engineer at Tech Corp",
-        location="San Francisco, CA",
-        summary="Experienced full-stack developer with 6 years building scalable web applications",
-        current_position="Senior Software Engineer",
-        current_company="Tech Corp",
-        experiences=[
-            Experience(
-                title="Senior Software Engineer",
-                company="Tech Corp",
-                location="San Francisco, CA",
-                start_date=datetime(2021, 1, 1),
-                is_current=True,
-                description="Led development of microservices using Python, React, and AWS. Mentored junior developers.",
-                skills_used=["Python", "React", "AWS", "Docker", "PostgreSQL"]
-            ),
-            Experience(
-                title="Software Engineer",
-                company="Startup Inc",
-                location="San Francisco, CA",
-                start_date=datetime(2019, 6, 1),
-                end_date=datetime(2020, 12, 31),
-                description="Built REST APIs with Django and React frontend. Implemented CI/CD pipelines.",
-                skills_used=["Python", "Django", "React", "JavaScript", "MySQL"]
-            )
-        ],
-        education=[
-            Education(
-                degree="Bachelor of Science",
-                field="Computer Science",
-                school="UC Berkeley",
-                start_date=datetime(2015, 9, 1),
-                end_date=datetime(2019, 5, 1)
-            )
-        ],
-        skills=["Python", "JavaScript", "React", "Django", "AWS", "Docker", "PostgreSQL", "Git", "Agile"],
-        certifications=["AWS Certified Solutions Architect"]
-    )
-
-    # Candidate 2: Medium match
-    candidate2 = CandidateProfile(
-        linkedin_id="sample2",
-        linkedin_url="https://linkedin.com/in/sample2",
-        name="Jane Smith",
-        headline="Full Stack Developer at Digital Agency",
-        location="New York, NY",
-        summary="Passionate developer with 4 years experience in web development",
-        current_position="Full Stack Developer",
-        current_company="Digital Agency",
-        experiences=[
-            Experience(
-                title="Full Stack Developer",
-                company="Digital Agency",
-                location="New York, NY",
-                start_date=datetime(2020, 3, 1),
-                is_current=True,
-                description="Developed e-commerce platforms using Node.js and React. Worked with MongoDB.",
-                skills_used=["JavaScript", "Node.js", "React", "MongoDB", "Express"]
-            ),
-            Experience(
-                title="Junior Developer",
-                company="Small Business",
-                location="New York, NY",
-                start_date=datetime(2019, 1, 1),
-                end_date=datetime(2020, 2, 28),
-                description="Built websites with HTML, CSS, JavaScript and PHP.",
-                skills_used=["HTML", "CSS", "JavaScript", "PHP", "MySQL"]
-            )
-        ],
-        education=[
-            Education(
-                degree="Bachelor of Arts",
-                field="Information Systems",
-                school="NYU",
-                start_date=datetime(2015, 9, 1),
-                end_date=datetime(2018, 12, 1)
-            )
-        ],
-        skills=["JavaScript", "React", "Node.js", "MongoDB", "Express", "HTML", "CSS", "Git"],
-        certifications=[]
-    )
-
-    # Candidate 3: Lower match
-    candidate3 = CandidateProfile(
-        linkedin_id="sample3",
-        linkedin_url="https://linkedin.com/in/sample3",
-        name="Bob Johnson",
-        headline="Data Analyst at Finance Corp",
-        location="Chicago, IL",
-        summary="Data analyst with some programming experience looking to transition to software development",
-        current_position="Data Analyst",
-        current_company="Finance Corp",
-        experiences=[
-            Experience(
-                title="Data Analyst",
-                company="Finance Corp",
-                location="Chicago, IL",
-                start_date=datetime(2021, 6, 1),
-                is_current=True,
-                description="Analyzed financial data using Python and SQL. Built dashboards with Tableau.",
-                skills_used=["Python", "SQL", "Tableau", "Excel", "Statistics"]
-            ),
-            Experience(
-                title="Junior Data Analyst",
-                company="Consulting Firm",
-                location="Chicago, IL",
-                start_date=datetime(2020, 8, 1),
-                end_date=datetime(2021, 5, 31),
-                description="Performed data analysis and reporting using Excel and SQL.",
-                skills_used=["Excel", "SQL", "PowerBI"]
-            )
-        ],
-        education=[
-            Education(
-                degree="Master of Science",
-                field="Statistics",
-                school="University of Chicago",
-                start_date=datetime(2018, 9, 1),
-                end_date=datetime(2020, 6, 1)
-            )
-        ],
-        skills=["Python", "SQL", "Tableau", "Excel", "Statistics", "Data Analysis"],
-        certifications=["Google Data Analytics Certificate"]
-    )
-
-    return [candidate1, candidate2, candidate3]
-
-
 def main():
     """Main demonstration function"""
     print("=== LinkedIn Candidate Filtering & Ranking System ===\n")
-
-    # Initialize system
-    system = LinkedInCandidateSystem()
 
     # Sample job description
     job_description = """
@@ -440,6 +335,12 @@ def main():
     """
 
     try:
+        # Initialize system with LinkedIn API integration
+        openai_key = os.getenv("OPENAI_API_KEY")
+        linkedin_client = LinkedInAPIClient.from_env()
+        candidate_fetcher = LinkedInCandidateFetcher(linkedin_client)
+        system = LinkedInCandidateSystem(openai_key, candidate_fetcher)
+
         # Process job description
         print("1. Processing job description...")
         session_id = system.process_job_description(job_description, "TechCorp Inc")
@@ -451,9 +352,11 @@ def main():
         print(f"   Skills: {filters['skills'][:5]}...")
         print(f"   Titles: {filters['title_current'][:3]}...")
 
-        # Create sample candidates
-        print("\n3. Processing candidate profiles...")
-        candidates = create_sample_candidates()
+        # Fetch candidates from LinkedIn
+        print("\n3. Fetching candidate profiles from LinkedIn...")
+        max_candidates = int(os.getenv("LINKEDIN_MAX_CANDIDATES", "25"))
+        candidates = system.fetch_candidates(session_id, max_candidates=max_candidates)
+        print(f"✓ Retrieved {len(candidates)} candidates from LinkedIn")
 
         # Score and rank candidates
         print("\n4. Scoring and ranking candidates...")

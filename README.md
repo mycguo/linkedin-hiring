@@ -36,13 +36,32 @@ An intelligent recruitment system that automatically parses job descriptions, ge
    export OPENAI_API_KEY="your-api-key-here"
    ```
 
+5. **Configure LinkedIn API credentials**
+   ```bash
+   export LINKEDIN_CLIENT_ID="your-linkedin-client-id"
+   export LINKEDIN_CLIENT_SECRET="your-linkedin-client-secret"
+   export LINKEDIN_REFRESH_TOKEN="your-refresh-token"        # or supply LINKEDIN_ACCESS_TOKEN
+   export LINKEDIN_ACCESS_TOKEN="your-access-token"          # optional if refresh token provided
+   export LINKEDIN_REDIRECT_URI="https://your.app/callback"  # required for refresh flow
+   export LINKEDIN_MAX_CANDIDATES="50"                       # optional override
+   ```
+   > The demo now calls the LinkedIn Talent APIs directly. Provision access through LinkedIn Talent Solutions and supply valid credentials before running `main.py`.
+
 ### Basic Usage
 
 ```python
+import os
+
+from linkedin_api import LinkedInAPIClient, LinkedInCandidateFetcher
 from src.main import LinkedInCandidateSystem
 
-# Initialize system
-system = LinkedInCandidateSystem(openai_api_key="your-key")  # Optional
+# Initialize services
+linkedin_client = LinkedInAPIClient.from_env()
+candidate_fetcher = LinkedInCandidateFetcher(linkedin_client)
+system = LinkedInCandidateSystem(
+    openai_api_key=os.getenv("OPENAI_API_KEY"),
+    candidate_fetcher=candidate_fetcher,
+)
 
 # Process job description
 job_text = """
@@ -56,13 +75,15 @@ Requirements:
 
 session_id = system.process_job_description(job_text)
 
-# Get generated search filters
+# Generate LinkedIn-ready search filters
 filters = system.get_search_filters(session_id)
 print(f"Search keywords: {filters['keywords']}")
-print(f"Skills to filter: {filters['skills']}")
 
-# Score candidates (you would get these from LinkedIn)
-ranked_candidates = system.score_candidates(session_id, candidate_profiles)
+# Pull candidates directly from LinkedIn
+candidates = system.fetch_candidates(session_id, max_candidates=25)
+
+# Score and rank
+ranked_candidates = system.score_candidates(session_id, candidates)
 
 # Export results
 json_export = system.export_results(ranked_candidates, "json")
@@ -76,7 +97,7 @@ cd src
 python main.py
 ```
 
-This will run a complete demonstration with sample data.
+The demo pulls real profiles through the LinkedIn Talent API. Ensure all LinkedIn environment variables are configured and that your application has the required Talent scopes before running.
 
 ## System Architecture
 
@@ -142,13 +163,12 @@ system.scoring_engine = ScoringEngine(weights=custom_weights)
 
 ### LinkedIn Integration
 
-The system generates search filters compatible with:
+The system now connects directly to the **LinkedIn Talent Solutions API** for both search and profile retrieval. To stay compliant:
 
-1. **LinkedIn Talent Solutions API** (recommended for production)
-2. **LinkedIn Sales Navigator** (manual search)
-3. **Web scraping** (for development/testing)
-
-**Note**: Always comply with LinkedIn's Terms of Service and rate limits.
+- Obtain enterprise access and required API scopes from LinkedIn
+- Store credentials securely (environment variables shown above are for development convenience only)
+- Respect rate limits and data retention policies outlined in your agreement
+- Provide user-level consent flows where mandated by LinkedIn
 
 ## Performance Metrics
 
@@ -168,6 +188,7 @@ linkedin-hiring/
 │   ├── job_parser.py       # Job description parsing
 │   ├── filter_generator.py # LinkedIn filter generation
 │   ├── scoring_engine.py   # Candidate scoring
+│   ├── linkedin_api.py     # LinkedIn REST client and fetcher
 │   └── main.py            # Main orchestrator
 ├── docs/
 │   └── system-design.md   # Detailed system design
