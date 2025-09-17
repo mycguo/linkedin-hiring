@@ -1,0 +1,1859 @@
+[
+  {
+    "rank": 1,
+    "percentile": 96.0,
+    "overall_score": 63.2174358974359,
+    "name": "Harsharn A.",
+    "linkedin_url": "resume:Harsharn_A._AEMAACXigeABC9cbLI_TwBZn1ravElseLqQJG6g",
+    "headline": "",
+    "location": "",
+    "current_position": "September 2020",
+    "current_company": "Present\u00a0 (5 years 1 month)",
+    "skills": [
+      "angular",
+      "aws",
+      "ci/cd",
+      "express",
+      "github actions",
+      "gitlab",
+      "java",
+      "javascript",
+      "js",
+      "matlab",
+      "microservices",
+      "node.js",
+      "pandas",
+      "postgresql",
+      "python",
+      "react",
+      "redis",
+      "typescript"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 74.4,
+        "weight": 0.3,
+        "weighted_score": 22.32
+      },
+      "experience_match": {
+        "raw_score": 24.487179487179485,
+        "weight": 0.2,
+        "weighted_score": 4.897435897435898
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 40.0,
+        "weight": 0.05,
+        "weighted_score": 2.0
+      }
+    },
+    "match_explanation": "Good match (63/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "Promising candidate - consider for interview",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 2,
+    "percentile": 92.0,
+    "overall_score": 60.9075,
+    "name": "Buvaneshkumar Balu",
+    "linkedin_url": "resume:Buvaneshkumar_Balu_AEMAAASf4d8BsZZMnH4qY2UGkv9Siyp6krY66CA",
+    "headline": "",
+    "location": "",
+    "current_position": "July 2021",
+    "current_company": "Present\u00a0 (4 years 3 months)",
+    "skills": [
+      "aws",
+      "java",
+      "javascript",
+      "js",
+      "node.js",
+      "python",
+      "react",
+      "react.js",
+      "typescript"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 72.4,
+        "weight": 0.3,
+        "weighted_score": 21.720000000000002
+      },
+      "experience_match": {
+        "raw_score": 22.1875,
+        "weight": 0.2,
+        "weighted_score": 4.4375
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 15.0,
+        "weight": 0.05,
+        "weighted_score": 0.75
+      }
+    },
+    "match_explanation": "Good match (61/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "Promising candidate - consider for interview",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 3,
+    "percentile": 88.0,
+    "overall_score": 60.3590625,
+    "name": "Ruoyang Wang",
+    "linkedin_url": "resume:Ruoyang_Wang_AEMAABLgB_MB4Coe6gEpNXwSqLrFMcCYLKZ48cU",
+    "headline": "",
+    "location": "",
+    "current_position": "May 2022",
+    "current_company": "Present\u00a0 (3 years 5 months)",
+    "skills": [
+      "aws",
+      "c",
+      "docker",
+      "flask",
+      "graphql",
+      "java",
+      "javascript",
+      "js",
+      "microservices",
+      "python",
+      "react",
+      "react.js",
+      "redux"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 74.4,
+        "weight": 0.3,
+        "weighted_score": 22.32
+      },
+      "experience_match": {
+        "raw_score": 25.1953125,
+        "weight": 0.2,
+        "weighted_score": 5.0390625
+      },
+      "education_match": {
+        "raw_score": 85.0,
+        "weight": 0.15,
+        "weighted_score": 12.75
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 25.0,
+        "weight": 0.05,
+        "weighted_score": 1.25
+      }
+    },
+    "match_explanation": "Good match (60/100). Strongest area: Industry Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "Promising candidate - consider for interview",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 4,
+    "percentile": 84.0,
+    "overall_score": 60.20014084507042,
+    "name": "Dmitry Kozlov",
+    "linkedin_url": "resume:Dmitry_Kozlov_AEMAAAjNmUUBxrJ88v6IbKjZxHZ04WhQOucac9Q",
+    "headline": "",
+    "location": "",
+    "current_position": "Windows Server 2008 R2",
+    "current_company": "",
+    "skills": [
+      "ansible",
+      "aws",
+      "azure",
+      "bash",
+      "c",
+      "docker",
+      "elasticsearch",
+      "gcp",
+      "gitlab",
+      "go",
+      "grafana",
+      "grpc",
+      "java",
+      "javascript",
+      "jenkins",
+      "kubernetes",
+      "microservices",
+      "php",
+      "prometheus",
+      "python",
+      "pytorch",
+      "redis",
+      "shell",
+      "spring",
+      "sql",
+      "tensorflow",
+      "terraform"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 69.2,
+        "weight": 0.3,
+        "weighted_score": 20.76
+      },
+      "experience_match": {
+        "raw_score": 23.450704225352112,
+        "weight": 0.2,
+        "weighted_score": 4.690140845070423
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 15.0,
+        "weight": 0.05,
+        "weighted_score": 0.75
+      }
+    },
+    "match_explanation": "Good match (60/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "Promising candidate - consider for interview",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 5,
+    "percentile": 80.0,
+    "overall_score": 59.63426573426573,
+    "name": "Venkat Pandeti",
+    "linkedin_url": "resume:Venkat_Pandeti_AEMAAAMd3BkBABkvgMwVErfqt5d-jvkSH7xCL74",
+    "headline": "",
+    "location": "",
+    "current_position": "August 2025",
+    "current_company": "Present\u00a0 (2 months)",
+    "skills": [
+      "aws",
+      "css",
+      "docker",
+      "dynamodb",
+      "html",
+      "java",
+      "jenkins",
+      "js",
+      "kubernetes",
+      "microservices",
+      "python",
+      "react",
+      "react.js",
+      "rest",
+      "scrum",
+      "spark",
+      "splunk",
+      "spring",
+      "tableau"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 68.0,
+        "weight": 0.3,
+        "weighted_score": 20.4
+      },
+      "experience_match": {
+        "raw_score": 23.67132867132867,
+        "weight": 0.2,
+        "weighted_score": 4.734265734265734
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 10.0,
+        "weight": 0.05,
+        "weighted_score": 0.5
+      }
+    },
+    "match_explanation": "Good match (60/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: javascript",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [
+      "Additional skill: scrum"
+    ],
+    "recommendations": [
+      "Promising candidate - consider for interview",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 6,
+    "percentile": 76.0,
+    "overall_score": 56.162327044025155,
+    "name": "Gauri Jape",
+    "linkedin_url": "resume:Gauri_Jape_AEMAAAXtAYsBs8HbOCfWWYFmkUMMKUSBnOxN5Fw",
+    "headline": "",
+    "location": "",
+    "current_position": "Oracle Cloud Infrastructure 2022",
+    "current_company": "",
+    "skills": [
+      "agile",
+      "ci/cd",
+      "java",
+      "kubernetes",
+      "oracle",
+      "python",
+      "r",
+      "scrum",
+      "spring"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 62.8,
+        "weight": 0.3,
+        "weighted_score": 18.84
+      },
+      "experience_match": {
+        "raw_score": 22.861635220125784,
+        "weight": 0.2,
+        "weighted_score": 4.572327044025157
+      },
+      "education_match": {
+        "raw_score": 85.0,
+        "weight": 0.15,
+        "weighted_score": 12.75
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 20.0,
+        "weight": 0.05,
+        "weighted_score": 1.0
+      }
+    },
+    "match_explanation": "Good match (56/100). Strongest area: Industry Match (100/100).",
+    "missing_requirements": [
+      "Required skill: javascript",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [
+      "Additional skill: agile",
+      "Additional skill: scrum"
+    ],
+    "recommendations": [
+      "Promising candidate - consider for interview",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 7,
+    "percentile": 72.0,
+    "overall_score": 56.09920353982301,
+    "name": "Mayuresh Jakhotia",
+    "linkedin_url": "resume:Mayuresh_Jakhotia_AEMAABUpadIBLcJ2A2LusgyyxO5g4SLX4VSkF7E",
+    "headline": "",
+    "location": "",
+    "current_position": "December 2018",
+    "current_company": "Present\u00a0 (6 years 10 months)",
+    "skills": [
+      "angular",
+      "azure",
+      "c",
+      "ci/cd",
+      "docker",
+      "flask",
+      "java",
+      "jenkins",
+      "python",
+      "redis",
+      "rest",
+      "spring",
+      "sql",
+      "sql server"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 56.39999999999999,
+        "weight": 0.3,
+        "weighted_score": 16.919999999999998
+      },
+      "experience_match": {
+        "raw_score": 24.646017699115045,
+        "weight": 0.2,
+        "weighted_score": 4.92920353982301
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 70,
+        "weight": 0.05,
+        "weighted_score": 3.5
+      },
+      "keyword_density": {
+        "raw_score": 15.0,
+        "weight": 0.05,
+        "weighted_score": 0.75
+      }
+    },
+    "match_explanation": "Good match (56/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: javascript",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "Promising candidate - consider for interview",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 8,
+    "percentile": 68.0,
+    "overall_score": 55.81864864864865,
+    "name": "Vincent Ramdhanie",
+    "linkedin_url": "resume:Vincent_Ramdhanie_AEMAAAU3000Bg3LakIS6rtxfJ8d8KTRT55nMH9k",
+    "headline": "",
+    "location": "",
+    "current_position": "August 2024",
+    "current_company": "Present\u00a0 (1 year 2 months)",
+    "skills": [
+      ".net",
+      "angular",
+      "asp.net",
+      "c",
+      "express",
+      "java",
+      "javascript",
+      "mongodb",
+      "postgres",
+      "postgresql",
+      "react",
+      "redis"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 56.39999999999999,
+        "weight": 0.3,
+        "weighted_score": 16.919999999999998
+      },
+      "experience_match": {
+        "raw_score": 24.493243243243242,
+        "weight": 0.2,
+        "weighted_score": 4.898648648648649
+      },
+      "education_match": {
+        "raw_score": 85.0,
+        "weight": 0.15,
+        "weighted_score": 12.75
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 45.0,
+        "weight": 0.05,
+        "weighted_score": 2.25
+      }
+    },
+    "match_explanation": "Good match (56/100). Strongest area: Industry Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "Promising candidate - consider for interview",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 9,
+    "percentile": 64.0,
+    "overall_score": 55.412649006622516,
+    "name": "Marius Matioc",
+    "linkedin_url": "resume:Marius_Matioc_AEMAABiQFxQB-I-pCjPN1MQfQEh8Bhgb5fKXWS8",
+    "headline": "",
+    "location": "",
+    "current_position": "October 2021",
+    "current_company": "Present\u00a0 (4 years)",
+    "skills": [
+      ".net",
+      "asp.net",
+      "aws",
+      "c",
+      "django",
+      "docker",
+      "elasticsearch",
+      "go",
+      "graphql",
+      "java",
+      "python",
+      "shell",
+      "terraform"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 55.2,
+        "weight": 0.3,
+        "weighted_score": 16.56
+      },
+      "experience_match": {
+        "raw_score": 23.013245033112582,
+        "weight": 0.2,
+        "weighted_score": 4.602649006622516
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 5.0,
+        "weight": 0.05,
+        "weighted_score": 0.25
+      }
+    },
+    "match_explanation": "Good match (55/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: javascript",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "Promising candidate - consider for interview",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 10,
+    "percentile": 60.0,
+    "overall_score": 54.88636363636364,
+    "name": "Saketh Pulipaka",
+    "linkedin_url": "resume:Saketh_Pulipaka_AEMAABXpiEkBMmGRe1iUxBOD5E6-a3fZpPQfMXA",
+    "headline": "",
+    "location": "",
+    "current_position": "Hackathon 2017 for most innovative",
+    "current_company": "",
+    "skills": [
+      "agile",
+      "angular",
+      "aws",
+      "hibernate",
+      "java",
+      "javascript",
+      "microservices",
+      "scrum",
+      "spring",
+      "sql"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 50.0,
+        "weight": 0.3,
+        "weighted_score": 15.0
+      },
+      "experience_match": {
+        "raw_score": 23.181818181818183,
+        "weight": 0.2,
+        "weighted_score": 4.636363636363637
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 25.0,
+        "weight": 0.05,
+        "weighted_score": 1.25
+      }
+    },
+    "match_explanation": "Fair match (55/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [
+      "Additional skill: agile",
+      "Additional skill: scrum"
+    ],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 11,
+    "percentile": 56.00000000000001,
+    "overall_score": 54.58709677419355,
+    "name": "Henry Wu",
+    "linkedin_url": "resume:Henry_Wu_AEMAAACd8LgB_63WT5mzccj49SO8Ahl-0w_LZBo",
+    "headline": "",
+    "location": "",
+    "current_position": "October 2022",
+    "current_company": "Present\u00a0 (3 years)",
+    "skills": [
+      "agile",
+      "aws",
+      "c",
+      "css",
+      "hibernate",
+      "html",
+      "java",
+      "javascript",
+      "microservices",
+      "mongodb",
+      "mysql",
+      "nosql",
+      "oracle",
+      "php",
+      "shell",
+      "spring",
+      "sql"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 50.0,
+        "weight": 0.3,
+        "weighted_score": 15.0
+      },
+      "experience_match": {
+        "raw_score": 22.935483870967744,
+        "weight": 0.2,
+        "weighted_score": 4.587096774193549
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 20.0,
+        "weight": 0.05,
+        "weighted_score": 1.0
+      }
+    },
+    "match_explanation": "Fair match (55/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [
+      "Additional skill: agile"
+    ],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 12,
+    "percentile": 52.0,
+    "overall_score": 53.62222222222222,
+    "name": "Rama B.",
+    "linkedin_url": "resume:Rama_B._AEMAAAxojFcBKkJqPWG0YgVP9m2U0iHvbaZrMqI",
+    "headline": "",
+    "location": "",
+    "current_position": "August 2021",
+    "current_company": "Present\u00a0 (4 years 2 months)",
+    "skills": [
+      "java",
+      "oracle",
+      "python",
+      "terraform",
+      "typescript"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 48.0,
+        "weight": 0.3,
+        "weighted_score": 14.399999999999999
+      },
+      "experience_match": {
+        "raw_score": 23.61111111111111,
+        "weight": 0.2,
+        "weighted_score": 4.722222222222222
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 10.0,
+        "weight": 0.05,
+        "weighted_score": 0.5
+      }
+    },
+    "match_explanation": "Fair match (54/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: javascript",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 13,
+    "percentile": 48.0,
+    "overall_score": 52.61608695652174,
+    "name": "Mahitha Soundararajan",
+    "linkedin_url": "resume:Mahitha_Soundararajan_AEMAAAPtG6sBsQ7iyhrXalPgAUQy-cxxQmupOJY",
+    "headline": "",
+    "location": "",
+    "current_position": "May 2020",
+    "current_company": "Present\u00a0 (5 years 5 months)",
+    "skills": [
+      "graphql",
+      "javascript",
+      "oracle",
+      "rails",
+      "react",
+      "ruby",
+      "typescript"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 44.8,
+        "weight": 0.3,
+        "weighted_score": 13.44
+      },
+      "experience_match": {
+        "raw_score": 22.130434782608695,
+        "weight": 0.2,
+        "weighted_score": 4.426086956521739
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 15.0,
+        "weight": 0.05,
+        "weighted_score": 0.75
+      }
+    },
+    "match_explanation": "Fair match (53/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Required skill: java",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 14,
+    "percentile": 44.0,
+    "overall_score": 52.45,
+    "name": "Ted Casey",
+    "linkedin_url": "resume:Ted_Casey_AEMAAADFmIcBLbRJofJg58zLcIwVZfhzT1oxUAE",
+    "headline": "",
+    "location": "",
+    "current_position": "December 2022",
+    "current_company": "Present\u00a0 (2 years 10 months)",
+    "skills": [
+      "agile",
+      "aws",
+      "c",
+      "graphql",
+      "html",
+      "java",
+      "javascript",
+      "jenkins",
+      "js",
+      "mysql",
+      "node.js",
+      "nosql",
+      "oracle",
+      "php",
+      "rest",
+      "scrum",
+      "sql"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 50.0,
+        "weight": 0.3,
+        "weighted_score": 15.0
+      },
+      "experience_match": {
+        "raw_score": 23.5,
+        "weight": 0.2,
+        "weighted_score": 4.7
+      },
+      "education_match": {
+        "raw_score": 85.0,
+        "weight": 0.15,
+        "weighted_score": 12.75
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 20.0,
+        "weight": 0.05,
+        "weighted_score": 1.0
+      }
+    },
+    "match_explanation": "Fair match (52/100). Strongest area: Industry Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [
+      "Additional skill: agile",
+      "Additional skill: scrum"
+    ],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 15,
+    "percentile": 40.0,
+    "overall_score": 52.39469798657718,
+    "name": "Anuj Bakshi",
+    "linkedin_url": "resume:Anuj_Bakshi_AEMAAB8cfpEBz3Jz0e1rOqSX-wpRtY88uEbeAp8",
+    "headline": "",
+    "location": "",
+    "current_position": "September 2021",
+    "current_company": "Present\u00a0 (4 years 1 month)",
+    "skills": [
+      "agile",
+      "java",
+      "python",
+      "rest",
+      "scrum"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 44.8,
+        "weight": 0.3,
+        "weighted_score": 13.44
+      },
+      "experience_match": {
+        "raw_score": 23.523489932885905,
+        "weight": 0.2,
+        "weighted_score": 4.704697986577181
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 5.0,
+        "weight": 0.05,
+        "weighted_score": 0.25
+      }
+    },
+    "match_explanation": "Fair match (52/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: javascript",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [
+      "Additional skill: agile",
+      "Additional skill: scrum"
+    ],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 16,
+    "percentile": 36.0,
+    "overall_score": 50.69307692307692,
+    "name": "Gabriel B.",
+    "linkedin_url": "resume:Gabriel_B._AEMAAAxKCsABYLaYX--UU9GmyeBoE2atYNZeVDQ",
+    "headline": "",
+    "location": "",
+    "current_position": "- I've declared recruiter email bankruptcy as of March 31",
+    "current_company": "",
+    "skills": [
+      ".net",
+      "c",
+      "javascript",
+      "spark",
+      "typescript"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 38.4,
+        "weight": 0.3,
+        "weighted_score": 11.52
+      },
+      "experience_match": {
+        "raw_score": 22.115384615384613,
+        "weight": 0.2,
+        "weighted_score": 4.4230769230769225
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 15.0,
+        "weight": 0.05,
+        "weighted_score": 0.75
+      }
+    },
+    "match_explanation": "Fair match (51/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Required skill: java",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 17,
+    "percentile": 32.0,
+    "overall_score": 50.53802816901408,
+    "name": "Tikaprem Gurung",
+    "linkedin_url": "resume:Tikaprem_Gurung_AEMAAAJwklMB_svX5MLuUEKVLxDxhursr-78lbY",
+    "headline": "",
+    "location": "",
+    "current_position": "July 2019",
+    "current_company": "Present\u00a0 (6 years 3 months)",
+    "skills": [
+      "agile",
+      "aws",
+      "oracle",
+      "python",
+      "scrum",
+      "typescript"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 34.0,
+        "weight": 0.3,
+        "weighted_score": 10.2
+      },
+      "experience_match": {
+        "raw_score": 24.190140845070424,
+        "weight": 0.2,
+        "weighted_score": 4.838028169014085
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 30.0,
+        "weight": 0.05,
+        "weighted_score": 1.5
+      }
+    },
+    "match_explanation": "Fair match (51/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: java",
+      "Required skill: javascript",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [
+      "Additional skill: agile",
+      "Additional skill: scrum"
+    ],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 18,
+    "percentile": 28.000000000000004,
+    "overall_score": 49.810559440559445,
+    "name": "charles ilogu",
+    "linkedin_url": "resume:charles_ilogu_AEMAAAbeawcBKPFe-_ybQrilVcJdhHh3knf6twE",
+    "headline": "",
+    "location": "",
+    "current_position": "June 2018",
+    "current_company": "Present\u00a0 (7 years 4 months)",
+    "skills": [
+      "css",
+      "elasticsearch",
+      "gcp",
+      "go",
+      "golang",
+      "html",
+      "javascript",
+      "js",
+      "mysql",
+      "node.js",
+      "oracle",
+      "php",
+      "python",
+      "react",
+      "react.js",
+      "redis",
+      "rest",
+      "sql"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 70.4,
+        "weight": 0.3,
+        "weighted_score": 21.12
+      },
+      "experience_match": {
+        "raw_score": 22.202797202797203,
+        "weight": 0.2,
+        "weighted_score": 4.440559440559441
+      },
+      "education_match": {
+        "raw_score": 30.0,
+        "weight": 0.15,
+        "weighted_score": 4.5
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 15.0,
+        "weight": 0.05,
+        "weighted_score": 0.75
+      }
+    },
+    "match_explanation": "Fair match (50/100). Strongest area: Industry Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: java",
+      "Experience: 5.0 years short of requirement",
+      "Education: bachelor degree required"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 19,
+    "percentile": 24.0,
+    "overall_score": 49.617777777777775,
+    "name": "SaiKarthik Vemuri",
+    "linkedin_url": "resume:SaiKarthik_Vemuri_AEMAAAfaW2MBv5G8w1Oac7I6Ac-sLCC2h3bz9GQ",
+    "headline": "",
+    "location": "",
+    "current_position": "July 2024",
+    "current_company": "Present\u00a0 (1 year 3 months)",
+    "skills": [
+      "aws",
+      "docker",
+      "event-driven",
+      "graphql",
+      "grpc",
+      "java",
+      "kotlin",
+      "kubernetes",
+      "oracle",
+      "postgres",
+      "redis",
+      "rest",
+      "spark",
+      "spring"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 32.8,
+        "weight": 0.3,
+        "weighted_score": 9.839999999999998
+      },
+      "experience_match": {
+        "raw_score": 23.88888888888889,
+        "weight": 0.2,
+        "weighted_score": 4.777777777777778
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 20.0,
+        "weight": 0.05,
+        "weighted_score": 1.0
+      }
+    },
+    "match_explanation": "Fair match (50/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Required skill: javascript",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 20,
+    "percentile": 20.0,
+    "overall_score": 49.477397260273975,
+    "name": "Nixin Wang",
+    "linkedin_url": "resume:Nixin_Wang_AEMAAAzoWt0BAXsPAxZzVMuIP0DTXj148pYMLCA",
+    "headline": "",
+    "location": "",
+    "current_position": "February 2022",
+    "current_company": "Present\u00a0 (3 years 8 months)",
+    "skills": [
+      "agile",
+      "aws",
+      "react",
+      "rest",
+      "scrum",
+      "tdd"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 34.0,
+        "weight": 0.3,
+        "weighted_score": 10.2
+      },
+      "experience_match": {
+        "raw_score": 22.636986301369863,
+        "weight": 0.2,
+        "weighted_score": 4.527397260273973
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 70,
+        "weight": 0.05,
+        "weighted_score": 3.5
+      },
+      "keyword_density": {
+        "raw_score": 25.0,
+        "weight": 0.05,
+        "weighted_score": 1.25
+      }
+    },
+    "match_explanation": "Fair match (49/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Required skill: java",
+      "Required skill: javascript",
+      "Experience: 5.0 years short of requirement"
+    ],
+    "additional_strengths": [
+      "Additional skill: agile",
+      "Additional skill: scrum"
+    ],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 21,
+    "percentile": 16.0,
+    "overall_score": 48.38292682926829,
+    "name": "Sean Brennan",
+    "linkedin_url": "resume:Sean_Brennan_AEMAAAB2KUUBelmdN0ebW957i4WTz-eMI__TzRY",
+    "headline": "",
+    "location": "",
+    "current_position": "March 2024",
+    "current_company": "Present\u00a0 (1 year 7 months)",
+    "skills": [
+      "java",
+      "javascript",
+      "kotlin",
+      "python"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 64.0,
+        "weight": 0.3,
+        "weighted_score": 19.2
+      },
+      "experience_match": {
+        "raw_score": 23.414634146341463,
+        "weight": 0.2,
+        "weighted_score": 4.682926829268292
+      },
+      "education_match": {
+        "raw_score": 30.0,
+        "weight": 0.15,
+        "weighted_score": 4.5
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 20.0,
+        "weight": 0.05,
+        "weighted_score": 1.0
+      }
+    },
+    "match_explanation": "Fair match (48/100). Strongest area: Industry Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement",
+      "Education: bachelor degree required"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 22,
+    "percentile": 12.0,
+    "overall_score": 45.46686746987952,
+    "name": "chao liang",
+    "linkedin_url": "resume:chao_liang_AEMAAANGXwgBrVGTww-w86qZlg8TmkCVNieEy_U",
+    "headline": "",
+    "location": "",
+    "current_position": "May 2021",
+    "current_company": "Present\u00a0 (4 years 5 months)",
+    "skills": [
+      "c",
+      "ci/cd",
+      "event-driven",
+      "hibernate",
+      "java",
+      "javascript",
+      "jenkins",
+      "microservices",
+      "mysql",
+      "oracle",
+      "php",
+      "postgresql"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 50.0,
+        "weight": 0.3,
+        "weighted_score": 15.0
+      },
+      "experience_match": {
+        "raw_score": 23.58433734939759,
+        "weight": 0.2,
+        "weighted_score": 4.716867469879518
+      },
+      "education_match": {
+        "raw_score": 40.0,
+        "weight": 0.15,
+        "weighted_score": 6.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 15.0,
+        "weight": 0.05,
+        "weighted_score": 0.75
+      }
+    },
+    "match_explanation": "Fair match (45/100). Strongest area: Industry Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement",
+      "Education: bachelor degree required"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 23,
+    "percentile": 8.0,
+    "overall_score": 45.082327044025156,
+    "name": "Kevin Geng",
+    "linkedin_url": "resume:Kevin_Geng_AEMAAAsS2ioBIm0o9ntfT2OsnAbwth7HpFwhvUc",
+    "headline": "",
+    "location": "",
+    "current_position": "+19548493054  (Mobile)",
+    "current_company": "",
+    "skills": [
+      "agile",
+      "c",
+      "microservices"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 19.200000000000003,
+        "weight": 0.3,
+        "weighted_score": 5.760000000000001
+      },
+      "experience_match": {
+        "raw_score": 22.861635220125784,
+        "weight": 0.2,
+        "weighted_score": 4.572327044025157
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 15.0,
+        "weight": 0.05,
+        "weighted_score": 0.75
+      }
+    },
+    "match_explanation": "Fair match (45/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Required skill: java",
+      "Required skill: javascript",
+      "Required skill: react"
+    ],
+    "additional_strengths": [
+      "Additional skill: agile"
+    ],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 24,
+    "percentile": 4.0,
+    "overall_score": 43.17407407407407,
+    "name": "Jebzel Castillo",
+    "linkedin_url": "resume:Jebzel_Castillo_AEMAAAOwnhIBIznFkRjzhlkn_p5iVdvM7KXCE8g",
+    "headline": "",
+    "location": "",
+    "current_position": "November 2022",
+    "current_company": "Present\u00a0 (2 years 11 months)",
+    "skills": [
+      "angular",
+      "aws",
+      "c",
+      "ci/cd",
+      "java",
+      "javascript",
+      "js",
+      "laravel",
+      "mongodb",
+      "mysql",
+      "node.js",
+      "php",
+      "postgresql",
+      "rails",
+      "reactjs",
+      "ruby",
+      "scrum",
+      "sql",
+      "sql server",
+      "swift",
+      "typescript"
+    ],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 52.0,
+        "weight": 0.3,
+        "weighted_score": 15.6
+      },
+      "experience_match": {
+        "raw_score": 20.37037037037037,
+        "weight": 0.2,
+        "weighted_score": 4.074074074074074
+      },
+      "education_match": {
+        "raw_score": 30.0,
+        "weight": 0.15,
+        "weighted_score": 4.5
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 0.0,
+        "weight": 0.05,
+        "weighted_score": 0.0
+      }
+    },
+    "match_explanation": "Fair match (43/100). Strongest area: Industry Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Required skill: react",
+      "Experience: 5.0 years short of requirement",
+      "Education: bachelor degree required"
+    ],
+    "additional_strengths": [
+      "Additional skill: scrum"
+    ],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess location match carefully in interview"
+    ]
+  },
+  {
+    "rank": 25,
+    "percentile": 0.0,
+    "overall_score": 39.42307692307692,
+    "name": "Aysun F.",
+    "linkedin_url": "resume:Aysun_F._AEMAAA_XH-gBuMjLEDOd11zUVNrIALyT8gM0yGw",
+    "headline": "",
+    "location": "",
+    "current_position": "in/21a8998002006cc84  (LinkedIn)",
+    "current_company": "",
+    "skills": [],
+    "score_breakdown": {
+      "skill_match": {
+        "raw_score": 0.0,
+        "weight": 0.3,
+        "weighted_score": 0.0
+      },
+      "experience_match": {
+        "raw_score": 23.365384615384617,
+        "weight": 0.2,
+        "weighted_score": 4.673076923076923
+      },
+      "education_match": {
+        "raw_score": 100.0,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "industry_match": {
+        "raw_score": 100,
+        "weight": 0.15,
+        "weighted_score": 15.0
+      },
+      "location_match": {
+        "raw_score": 0,
+        "weight": 0.1,
+        "weighted_score": 0.0
+      },
+      "career_trajectory": {
+        "raw_score": 80,
+        "weight": 0.05,
+        "weighted_score": 4.0
+      },
+      "keyword_density": {
+        "raw_score": 15.0,
+        "weight": 0.05,
+        "weighted_score": 0.75
+      }
+    },
+    "match_explanation": "Weak match (39/100). Strongest area: Education Match (100/100).",
+    "missing_requirements": [
+      "Required skill: r",
+      "Required skill: python",
+      "Required skill: java",
+      "Required skill: javascript",
+      "Required skill: react"
+    ],
+    "additional_strengths": [],
+    "recommendations": [
+      "May not meet minimum requirements",
+      "Assess skill match carefully in interview"
+    ]
+  }
+]

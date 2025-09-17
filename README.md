@@ -36,31 +36,28 @@ An intelligent recruitment system that automatically parses job descriptions, ge
    export OPENAI_API_KEY="your-api-key-here"
    ```
 
-5. **Configure LinkedIn API credentials**
-   ```bash
-   export LINKEDIN_CLIENT_ID="your-linkedin-client-id"
-   export LINKEDIN_CLIENT_SECRET="your-linkedin-client-secret"
-   export LINKEDIN_REFRESH_TOKEN="your-refresh-token"        # or supply LINKEDIN_ACCESS_TOKEN
-   export LINKEDIN_ACCESS_TOKEN="your-access-token"          # optional if refresh token provided
-   export LINKEDIN_REDIRECT_URI="https://your.app/callback"  # required for refresh flow
-   export LINKEDIN_MAX_CANDIDATES="50"                       # optional override
-   ```
-   > The demo now calls the LinkedIn Talent APIs directly. Provision access through LinkedIn Talent Solutions and supply valid credentials before running `main.py`.
+5. **Place resumes archive**
+   - Copy your `download.zip` (or any resume archive) into the project root.
+   - Optional environment overrides:
+     ```bash
+     export RESUME_ARCHIVE_PATH="/path/to/download.zip"
+     export MAX_CANDIDATES="50"
+     ```
+   > Each PDF inside the archive is parsed into a candidate profile during the run.
 
 ### Basic Usage
 
 ```python
 import os
 
-from linkedin_api import LinkedInAPIClient, LinkedInCandidateFetcher
 from src.main import LinkedInCandidateSystem
+from src.resume_loader import ResumeCandidateFetcher
 
 # Initialize services
-linkedin_client = LinkedInAPIClient.from_env()
-candidate_fetcher = LinkedInCandidateFetcher(linkedin_client)
+resume_fetcher = ResumeCandidateFetcher(os.getenv("RESUME_ARCHIVE_PATH", "download.zip"))
 system = LinkedInCandidateSystem(
     openai_api_key=os.getenv("OPENAI_API_KEY"),
-    candidate_fetcher=candidate_fetcher,
+    candidate_fetcher=resume_fetcher,
 )
 
 # Process job description
@@ -79,7 +76,7 @@ session_id = system.process_job_description(job_text)
 filters = system.get_search_filters(session_id)
 print(f"Search keywords: {filters['keywords']}")
 
-# Pull candidates directly from LinkedIn
+# Pull candidates from the resume archive
 candidates = system.fetch_candidates(session_id, max_candidates=25)
 
 # Score and rank
@@ -93,24 +90,24 @@ csv_export = system.export_results(ranked_candidates, "csv")
 ### Run Demo
 
 ```bash
-cd src
-python main.py
+streamlit run src/main.py
 ```
 
-The demo pulls real profiles through the LinkedIn Talent API. Ensure all LinkedIn environment variables are configured and that your application has the required Talent scopes before running.
+The web app loads every PDF inside `download.zip`, converts each resume into a `CandidateProfile`, and then runs the full scoring pipeline. Point `RESUME_ARCHIVE_PATH` to a different archive or upload one through the UI.
 
 ## System Architecture
 
 ```
-Job Description → Parser → Filter Generator → LinkedIn Search
-                                                     ↓
+Job Description → Parser → Filter Generator → Resume Loader
+                                                    ↓
 Results ← Scoring Engine ← Ranking ← Candidate Profiles
 ```
 
 ### Core Components
 
 - **Job Parser**: Extracts structured data from job descriptions using NLP
-- **Filter Generator**: Converts requirements to LinkedIn search parameters
+- **Filter Generator**: Converts requirements to structured search parameters
+- **Resume Loader**: Reads resume PDFs and builds candidate profiles
 - **Scoring Engine**: Multi-factor algorithm for candidate evaluation
 - **Main Orchestrator**: Coordinates the entire pipeline
 
@@ -161,14 +158,14 @@ system = LinkedInCandidateSystem()
 system.scoring_engine = ScoringEngine(weights=custom_weights)
 ```
 
-### LinkedIn Integration
+### Resume Ingestion
 
-The system now connects directly to the **LinkedIn Talent Solutions API** for both search and profile retrieval. To stay compliant:
+The resume loader processes every PDF inside the archive and builds structured profiles by:
 
-- Obtain enterprise access and required API scopes from LinkedIn
-- Store credentials securely (environment variables shown above are for development convenience only)
-- Respect rate limits and data retention policies outlined in your agreement
-- Provide user-level consent flows where mandated by LinkedIn
+- Extracting raw text with `pypdf`
+- Deriving headlines, summaries, and current roles from the top of each resume
+- Pulling likely skills from a curated dictionary merged with the job’s required skills
+- Capturing experience snippets and education highlights to feed the scoring model
 
 ## Performance Metrics
 
@@ -188,7 +185,7 @@ linkedin-hiring/
 │   ├── job_parser.py       # Job description parsing
 │   ├── filter_generator.py # LinkedIn filter generation
 │   ├── scoring_engine.py   # Candidate scoring
-│   ├── linkedin_api.py     # LinkedIn REST client and fetcher
+│   ├── resume_loader.py    # Resume archive ingestion
 │   └── main.py            # Main orchestrator
 ├── docs/
 │   └── system-design.md   # Detailed system design
@@ -218,7 +215,6 @@ mypy src/
 ## Legal & Compliance
 
 ⚠️ **Important**: Always ensure compliance with:
-- LinkedIn Terms of Service
 - Data privacy regulations (GDPR, CCPA)
 - Employment law requirements
 - Fair hiring practices

@@ -1,10 +1,13 @@
-"""Main orchestrator for LinkedIn candidate filtering and ranking system."""
+"""Streamlit app for resume-based candidate scoring."""
 import os
 import uuid
 from typing import List, Dict, Optional
 from datetime import datetime
 import json
 from dataclasses import asdict
+
+import requests
+import streamlit as st
 
 from models import (
     ParsedJobDescription,
@@ -16,7 +19,7 @@ from models import (
 from job_parser import JobDescriptionParser
 from filter_generator import LinkedInFilterGenerator
 from scoring_engine import ScoringEngine
-from linkedin_api import LinkedInAPIClient, LinkedInCandidateFetcher
+from resume_loader import ResumeCandidateFetcher
 
 
 class LinkedInCandidateSystem:
@@ -27,7 +30,7 @@ class LinkedInCandidateSystem:
     def __init__(
         self,
         openai_api_key: Optional[str] = None,
-        candidate_fetcher: Optional[LinkedInCandidateFetcher] = None,
+        candidate_fetcher: Optional[ResumeCandidateFetcher] = None,
     ) -> None:
         """
         Initialize the system with all components
@@ -103,12 +106,9 @@ class LinkedInCandidateSystem:
         session_id: str,
         max_candidates: int = 50,
     ) -> List[CandidateProfile]:
-        """Retrieve candidates from LinkedIn for a given session."""
+        """Retrieve candidates from the configured source for a given session."""
         if not self.candidate_fetcher:
-            raise RuntimeError(
-                "LinkedIn candidate fetcher is not configured. "
-                "Provide LinkedIn API credentials to enable live searches."
-            )
+            raise RuntimeError("Candidate fetcher is not configured.")
 
         if session_id not in self.sessions:
             raise ValueError(f"Session {session_id} not found")
@@ -304,109 +304,135 @@ class LinkedInCandidateSystem:
 
         return output.getvalue()
 
+def _load_job_description(job_url: str, job_text: str) -> str:
+    if job_text.strip():
+        return job_text.strip()
+
+    if not job_url:
+        raise ValueError("Provide a job description URL or paste the job description text.")
+
+    response = requests.get(job_url, timeout=10)
+    response.raise_for_status()
+    return response.text
+
+
+def _build_candidate_fetcher(uploaded_file, fallback_path: str) -> ResumeCandidateFetcher:
+    if uploaded_file is not None:
+        data = uploaded_file.getvalue()
+        return ResumeCandidateFetcher(data)
+
+    return ResumeCandidateFetcher(fallback_path)
+
+
+def _display_filters(filters: Dict):
+    st.subheader("Generated Search Filters")
+    for key, value in filters.items():
+        if isinstance(value, list):
+            value = ", ".join(str(v) for v in value[:10])
+        st.markdown(f"- **{key.replace('_', ' ').title()}**: {value}")
+
+
+def _display_candidates(ranked_candidates: List[RankedCandidate]):
+    st.subheader("Ranked Candidates")
+    if not ranked_candidates:
+        st.info("No candidates matched the criteria.")
+        return
+
+    for candidate in ranked_candidates:
+        profile = candidate.profile
+        score = candidate.score
+
+        with st.container():
+            st.markdown(f"### Rank #{candidate.rank}: {profile.name}")
+            st.markdown(
+                f"**Score:** {score.overall_score:.1f}/100  \
+**Percentile:** {candidate.percentile:.1f}%  \
+**Current Role:** {profile.current_position or 'N/A'} at {profile.current_company or 'N/A'}  \
+**Location:** {profile.location or 'N/A'}"
+            )
+
+            st.markdown(f"**Match Summary:** {score.match_explanation}")
+
+            if score.missing_requirements:
+                st.markdown("**Missing Requirements:** " + ", ".join(score.missing_requirements[:5]))
+
+            if score.additional_strengths:
+                st.markdown("**Strengths:** " + ", ".join(score.additional_strengths[:5]))
+
+            if score.recommendations:
+                st.markdown("**Recommendation:** " + score.recommendations[0])
+
 
 def main():
-    """Main demonstration function"""
-    print("=== LinkedIn Candidate Filtering & Ranking System ===\n")
+    st.set_page_config(page_title="Resume Scoring Engine", layout="wide")
+    st.title("📄 Resume-Based Candidate Scoring")
+    st.caption("Parse a job description and rank resume PDFs in a zip archive.")
 
-    # Sample job description
-    job_description = """
-    Senior Software Engineer - Full Stack
+    with st.sidebar:
+        st.header("Input Options")
+        job_url = st.text_input("Job Description URL")
+        job_text = st.text_area("Or Paste Job Description", height=220)
+        company_name = st.text_input("Company Name", value="TechCorp Inc")
+        max_candidates = st.slider("Max Candidates", min_value=1, max_value=100, value=25, step=1)
+        uploaded_zip = st.file_uploader("Resume Archive (.zip)", type="zip")
+        fallback_path = os.getenv("RESUME_ARCHIVE_PATH", "download.zip")
+        run_button = st.button("Run Scoring")
 
-    We are looking for an experienced Senior Software Engineer to join our team and help build
-    the next generation of our web platform.
-
-    Requirements:
-    - 5+ years of experience in software development
-    - Strong proficiency in Python and JavaScript
-    - Experience with React and modern web frameworks
-    - Experience with cloud platforms (AWS preferred)
-    - Bachelor's degree in Computer Science or related field
-    - Experience with PostgreSQL or similar databases
-    - Knowledge of Docker and containerization
-
-    Preferred:
-    - Experience with machine learning
-    - Knowledge of microservices architecture
-    - AWS certifications
-
-    Location: San Francisco, CA (Remote work available)
-    Salary: $150k - $200k
-    """
+    if not run_button:
+        st.info("Enter a job description and provide a resume archive to get started.")
+        return
 
     try:
-        # Initialize system with LinkedIn API integration
+        with st.spinner("Loading job description..."):
+            job_description_text = _load_job_description(job_url, job_text)
+
+        with st.spinner("Preparing candidate loader..."):
+            candidate_fetcher = _build_candidate_fetcher(uploaded_zip, fallback_path)
+
         openai_key = os.getenv("OPENAI_API_KEY")
-        linkedin_client = LinkedInAPIClient.from_env()
-        candidate_fetcher = LinkedInCandidateFetcher(linkedin_client)
         system = LinkedInCandidateSystem(openai_key, candidate_fetcher)
 
-        # Process job description
-        print("1. Processing job description...")
-        session_id = system.process_job_description(job_description, "TechCorp Inc")
+        with st.spinner("Processing job description..."):
+            session_id = system.process_job_description(job_description_text, company_name or None)
 
-        # Get search filters
-        print("\n2. Generated LinkedIn search filters:")
         filters = system.get_search_filters(session_id)
-        print(f"   Keywords: {filters['keywords']}")
-        print(f"   Skills: {filters['skills'][:5]}...")
-        print(f"   Titles: {filters['title_current'][:3]}...")
+        _display_filters(filters)
 
-        # Fetch candidates from LinkedIn
-        print("\n3. Fetching candidate profiles from LinkedIn...")
-        max_candidates = int(os.getenv("LINKEDIN_MAX_CANDIDATES", "25"))
-        candidates = system.fetch_candidates(session_id, max_candidates=max_candidates)
-        print(f"✓ Retrieved {len(candidates)} candidates from LinkedIn")
+        with st.spinner("Loading resumes and extracting candidates..."):
+            candidates = system.fetch_candidates(session_id, max_candidates=max_candidates)
 
-        # Score and rank candidates
-        print("\n4. Scoring and ranking candidates...")
-        ranked_candidates = system.score_candidates(session_id, candidates)
+        st.success(f"Loaded {len(candidates)} candidate profiles from resumes.")
 
-        # Display results
-        print(f"\n5. Results ({len(ranked_candidates)} candidates):")
-        print("=" * 80)
+        with st.spinner("Scoring candidates..."):
+            ranked_candidates = system.score_candidates(session_id, candidates)
 
-        for candidate in ranked_candidates:
-            print(f"\nRank #{candidate.rank} - {candidate.profile.name}")
-            print(f"Score: {candidate.score.overall_score:.1f}/100 (Top {100-candidate.percentile:.0f}%)")
-            print(f"Position: {candidate.profile.current_position} at {candidate.profile.current_company}")
-            print(f"Location: {candidate.profile.location}")
-            print(f"Match: {candidate.score.match_explanation}")
+        _display_candidates(ranked_candidates)
 
-            if candidate.score.missing_requirements:
-                print(f"Missing: {'; '.join(candidate.score.missing_requirements[:2])}")
-
-            if candidate.score.additional_strengths:
-                print(f"Strengths: {'; '.join(candidate.score.additional_strengths)}")
-
-            print(f"Recommendation: {candidate.score.recommendations[0]}")
-
-        # Export results
-        print("\n6. Exporting results...")
         json_export = system.export_results(ranked_candidates, "json")
-        with open("candidate_rankings.json", "w") as f:
-            f.write(json_export)
-
         csv_export = system.export_results(ranked_candidates, "csv")
-        with open("candidate_rankings.csv", "w") as f:
-            f.write(csv_export)
 
-        print("✓ Results exported to candidate_rankings.json and candidate_rankings.csv")
+        st.download_button(
+            label="Download JSON Results",
+            data=json_export,
+            file_name="candidate_rankings.json",
+            mime="application/json",
+        )
 
-        # Session status
-        print("\n7. Session status:")
+        st.download_button(
+            label="Download CSV Results",
+            data=csv_export,
+            file_name="candidate_rankings.csv",
+            mime="text/csv",
+        )
+
         status = system.get_session_status(session_id)
-        print(f"   Status: {status['status']}")
-        print(f"   Candidates processed: {status['candidates_processed']}")
-        print(f"   Duration: {(datetime.fromisoformat(status['completed_at']) - datetime.fromisoformat(status['created_at'])).total_seconds():.1f}s")
+        st.caption(
+            f"Session {status['session_id']} completed. Candidates processed: {status['candidates_processed']}."
+        )
 
-    except Exception as e:
-        print(f"❌ Error: {str(e)}")
-        return 1
-
-    print("\n✓ Demo completed successfully!")
-    return 0
+    except Exception as exc:
+        st.error(f"Failed to complete scoring: {exc}")
 
 
 if __name__ == "__main__":
-    exit(main())
+    main()
