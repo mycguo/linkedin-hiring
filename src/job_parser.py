@@ -6,7 +6,11 @@ import re
 import json
 from typing import Dict, List, Optional, Any
 from dataclasses import asdict
-import openai
+
+try:
+    import openai
+except ImportError:  # pragma: no cover - optional dependency
+    openai = None
 from models import (
     ParsedJobDescription,
     SeniorityLevel,
@@ -25,7 +29,15 @@ class JobDescriptionParser:
 
     def __init__(self, openai_api_key: Optional[str] = None):
         self.openai_api_key = openai_api_key
-        if openai_api_key:
+        self._ai_available = bool(openai_api_key and openai)
+
+        if openai_api_key and not openai:
+            raise ImportError(
+                "OpenAI support requested but the 'openai' package is not installed. "
+                "Install the optional dependency or omit the API key to use regex parsing."
+            )
+
+        if self._ai_available:
             openai.api_key = openai_api_key
 
         # Compile regex patterns
@@ -111,7 +123,7 @@ class JobDescriptionParser:
             ParsedJobDescription object with extracted information
         """
         # Try AI parsing first if API key available
-        if self.openai_api_key:
+        if self._ai_available:
             try:
                 return self._parse_with_ai(job_description)
             except Exception as e:
@@ -122,6 +134,9 @@ class JobDescriptionParser:
 
     def _parse_with_ai(self, job_description: str) -> ParsedJobDescription:
         """Use OpenAI GPT to parse job description"""
+
+        if not openai:
+            raise RuntimeError("OpenAI client not available; cannot perform AI parsing.")
 
         prompt = f"""
         Extract structured information from this job description.

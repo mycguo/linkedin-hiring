@@ -3,12 +3,17 @@ Candidate Scoring and Ranking Engine
 Multi-factor scoring algorithm for ranking candidates
 """
 import math
+import re
 from typing import List, Dict, Tuple, Optional
 from datetime import datetime, timedelta
 from dataclasses import dataclass
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+
+try:
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.metrics.pairwise import cosine_similarity
+except ImportError:  # pragma: no cover - optional dependency
+    TfidfVectorizer = None
+    cosine_similarity = None
 from models import (
     ParsedJobDescription,
     CandidateProfile,
@@ -52,12 +57,15 @@ class ScoringEngine:
         # Initialize location service
         self.location_service = LocationService()
 
-        # Initialize TF-IDF vectorizer for text similarity
-        self.tfidf_vectorizer = TfidfVectorizer(
-            max_features=500,
-            stop_words='english',
-            ngram_range=(1, 2)
-        )
+        # Initialize TF-IDF vectorizer for text similarity when available
+        if TfidfVectorizer:
+            self.tfidf_vectorizer = TfidfVectorizer(
+                max_features=500,
+                stop_words='english',
+                ngram_range=(1, 2)
+            )
+        else:
+            self.tfidf_vectorizer = None
 
         # Skill similarity thresholds
         self.EXACT_MATCH_SCORE = 100
@@ -584,22 +592,35 @@ class ScoringEngine:
             return 0
 
         try:
-            # Combine all experience descriptions
             candidate_exp_text = " ".join([exp.description for exp in candidate.experiences])
 
             if not candidate_exp_text or not job.job_description_text:
                 return 50
 
-            # Fit and transform texts
-            texts = [job.job_description_text, candidate_exp_text]
-            tfidf_matrix = self.tfidf_vectorizer.fit_transform(texts)
+            if self.tfidf_vectorizer and cosine_similarity:
+                texts = [job.job_description_text, candidate_exp_text]
+                tfidf_matrix = self.tfidf_vectorizer.fit_transform(texts)
+                similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
+                return similarity * 100
 
-            # Calculate cosine similarity
-            similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
-
-            return similarity * 100
-        except:
+            return self._basic_text_similarity(job.job_description_text, candidate_exp_text)
+        except Exception:
             return 50  # Default score on error
+
+    def _basic_text_similarity(self, text_a: str, text_b: str) -> float:
+        """Fallback similarity using token overlap when sklearn is unavailable"""
+        tokens_a = set(re.findall(r"[a-z0-9]+", text_a.lower()))
+        tokens_b = set(re.findall(r"[a-z0-9]+", text_b.lower()))
+
+        if not tokens_a or not tokens_b:
+            return 50
+
+        union_count = len(tokens_a | tokens_b)
+        if union_count == 0:
+            return 50
+
+        overlap_ratio = len(tokens_a & tokens_b) / union_count
+        return overlap_ratio * 100
 
     def _calculate_experience_recency(self, candidate: CandidateProfile) -> float:
         """Score based on how recent the experience is"""
