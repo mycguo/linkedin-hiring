@@ -326,10 +326,26 @@ def _build_candidate_fetcher(uploaded_file, fallback_path: str) -> ResumeCandida
 
 def _display_filters(filters: Dict):
     st.subheader("Generated Search Filters")
+    normalized = {}
     for key, value in filters.items():
         if isinstance(value, list):
-            value = ", ".join(str(v) for v in value[:10])
-        st.markdown(f"- **{key.replace('_', ' ').title()}**: {value}")
+            normalized[key] = [str(v) for v in value]
+        else:
+            normalized[key] = str(value) if value is not None else ""
+
+    cols = st.columns(2)
+    with cols[0]:
+        st.json(normalized)
+
+    with cols[1]:
+        for key, value in normalized.items():
+            if isinstance(value, list):
+                preview = ", ".join(value[:5])
+                if len(value) > 5:
+                    preview += " …"
+                st.markdown(f"**{key.replace('_', ' ').title()}**: {preview or '—'}")
+            else:
+                st.markdown(f"**{key.replace('_', ' ').title()}**: {value or '—'}")
 
 
 def _display_candidates(ranked_candidates: List[RankedCandidate]):
@@ -368,10 +384,17 @@ def main():
     st.title("📄 Resume-Based Candidate Scoring")
     st.caption("Parse a job description and rank resume PDFs in a zip archive.")
 
+    st.subheader("Job Description")
+    job_url = st.text_input("Job Description URL", placeholder="https://...", key="job_url_input")
+    job_text = st.text_area(
+        "Or Paste Job Description",
+        height=220,
+        placeholder="Paste the job description text here...",
+        key="job_text_input",
+    )
+
     with st.sidebar:
-        st.header("Input Options")
-        job_url = st.text_input("Job Description URL")
-        job_text = st.text_area("Or Paste Job Description", height=220)
+        st.header("Run Options")
         company_name = st.text_input("Company Name", value="TechCorp Inc")
         max_candidates = st.slider("Max Candidates", min_value=1, max_value=100, value=25, step=1)
         uploaded_zip = st.file_uploader("Resume Archive (.zip)", type="zip")
